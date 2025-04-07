@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Milan's Portfolio</title>
+  <link rel="stylesheet" href=".css" />
+  <script src="https://unpkg.com/scrollreveal"> </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* ✅ NAVBAR FIXED ON TOP */
+    nav {
+      
+      width: 100%;
+      background: linear-gradient(to right, #000000, #fbfbfb);
+      padding: 1rem 2rem;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 15rem;
+      margin-top: 1rem;
+    }
+
+    nav ul li a {
+      
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: x-large;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 2px;
+      background-color: #ffffff;
+      transition: width 0.4s ease;
+    }
+
+    nav ul li a:hover::after,
+    nav ul li a.active::after {
+      width: 100%;
+    }
+
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: #000000;
+    }
+
+    /* ✅ HERO SECTION FIXED UNDER NAVBAR */
+    .hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 5%;
+  background: linear-gradient(to right, #000000, #fbfbfb);
+
+  color: #fff;
+  min-height: 100vh;
+}
+
+.hero-left {
+  max-width: 600px;
+  z-index: 2;
+}
+
+.hero-right {
+  position: fixed;
+  top: 120px; /* Adjust so it's below navbar */
+  right: 5%;
+  width: 400px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.hero-right img {
+  width: 196%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 7rem;
+      margin-top: 1rem;
+      margin-left: -22rem;
+}
+
+.spacer{
+  height: 0;
+}
+
+    
+    .btn {
+      padding: 10px 20px;
+      background-color: #fbfbfb;
+      color: #000;
+      font-weight: bold;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #fbfbfb;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ✅ SECTION STYLES */
+    .section {
+      padding: 80px 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1001;
+      background-color: white;
+    }
+
+    .dark-section {
+      background-color: #ffffff;
+      color: #000000;
+    }
+
+    .skills-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .skills-list li {
+      background: #00ffd5;
+      color: #000;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    form input,
+    form textarea {
+      display: block;
+      width: 100%;
+      max-width: 500px;
+      margin: 10px auto;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    button[type="submit"] {
+      background-color: #00ffd5;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #0d0d0d;
+      color: #fff;
+      position: relative;
+      z-index: 1001;
+    }
+    #contact{
+      background-color: black;
+      color: #fff;
+    }
+
+    /* ✅ SPACER TO PUSH CONTENT BELOW HERO */
+    .spacer {
+      height: 100vh;
+    }
+
+    #typed-text {
+  font-weight: bold;
+  color: #000000;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 3rem;
+}
+
+.cursor {
+  display: inline-block;
+  color: #000000;
+  font-size: 3rem;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.yy{
+  font-size: x-large;
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+.skill-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.skill-card {
+  background: #1a1a1a;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  width: 280px;
+  box-shadow: 0 0 15px rgba(0,255,213,0.2);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(0,255,213,0.4);
+}
+
+.skill-card h3 {
+  margin-bottom: 10px;
+}
+
+.skill-card .icons {
+  margin-top: 15px;
+}
+
+.skill-card .icons img {
+  width: 35px;
+  height: 35px;
+  margin: 0 8px;
+  filter: drop-shadow(0 0 4px #00ffd5);
+}
+
+.hh{
+  font-size: 4rem;
+}
+.oo{
+  font-size: 4rem;
+}
+
+.project-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 31px 21px 30px rgba(0, 0, 0, 0.83);
+  background-color: #fff;
+  width: 348px;
+  height: 279px;
+}
+
+.project-cardd {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 31px 21px 30px rgba(0, 0, 0, 0.83);
+  background-color: #fff;
+  width: 348px;
+  height: 279px;
+}
+
+
+
+  .project-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-cardd img {
+  width: 68%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+
+
+.project-card:hover img {
+  transform: scale(1.1);
+}
+
+.project-cardd:hover img {
+  transform: scale(1.1);
+}
+
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.project-cardd:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.pp{
+  font-size: 4rem;
+}
+
+.github-link {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 1.8rem;
+  color: #ffffff;
+  transition: color 0.3s ease;
+}
+
+.github-link:hover {
+  color: #0077ff;
+}
+
+.button-wrapper {
+  text-align: center;
+  margin-top: 40px; /* space between cards and button */
+  position: relative;
+  z-index: 1002;
+}
+.your-button {
+  padding: 12px 30px;
+  border: 2px solid #4380d6;
+  color: #000000;
+  background-color: transparent;
+  border-radius: 25px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: 0.3s ease-in-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.youtube-button:hover {
+  background-color: #00d0ff;
+  color: #ffffff;
+  box-shadow: 0 0 20px #00ffcc, 0 0 40px #00ffcc;
+}
+
+.youtube-button {
+  position: relative;
+  z-index: 11;
+}
+
+.youtube-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 2px solid #4380d6;
+
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease;
+}
+
+.youtube-button:hover {
+  background-color: #000000;
+}
+
+.contact-section {
+  background-color: #000;
+  position: relative;
+      z-index: 1001;
+  color: #fff;
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact-left,
+.contact-right {
+  flex: 1;
+  min-width: 300px;
+}
+
+.contact-left h2 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.contact-left p {
+  font-size: 16px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.social-icons a {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #ddd;
+  transition: 0.3s;
+}
+
+.social-icons a:hover {
+  color: yellow;
+}
+
+.resume-btn {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: #ffc107;
+  color: black;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input,
+form textarea {
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  background-color: #2c2c2c;
+  color: white;
+  font-size: 16px;
+}
+
+form button {
+  background-color: #ffc107;
+  color: black;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+form button:hover {
+  background-color: #e6b800;
+}
+
+
+@media (max-width: 1024px) {
+  nav ul {
+    gap: 5rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 100px 2rem 2rem;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .hero-right {
+    position: static;
+    width: 100%;
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .hero-right img {
+    width: 80%;
+    margin: 0 auto;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+    margin-top: 0;
+  }
+
+  nav {
+    flex-direction: column;
+  }
+
+  #typed-text,
+  .cursor {
+    font-size: 2rem;
+  }
+
+  .yy {
+    margin: 0 1rem;
+    font-size: 1rem;
+  }
+
+  .hh, .oo, .pp {
+    font-size: 2rem;
+  }
+
+  .hero {
+    padding: 80px 1rem;
+  }
+
+  .hero-right img {
+    width: 100%;
+    margin: 0;
+  }
+
+  .skill-card {
+    width: 90%;
+  }
+
+  .project-card,
+  .project-cardd {
+    width: 90%;
+    height: auto;
+  }
+
+  .project-card img,
+  .project-cardd img {
+    height: auto;
+  }
+
+  .project-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    padding: 2rem;
+  }
+
+  form input,
+  form textarea {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .youtube-button,
+  .your-button {
+    padding: 10px 16px;
+    font-size: 14px;
+  }
+
+  nav ul li a {
+    font-size: 1rem;
+  }
+
+  .resume-btn {
+    font-size: 14px;
+    padding: 10px 16px;
+  }
+
+  .github-link {
+    font-size: 1.4rem;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- ✅ NAVBAR START -->
+  <nav>
+    <ul>
+      <li><a href="#about">About</a></li> 
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact" >Contact</a></li>
+
+    </ul>
+  </nav>
+  <!-- ✅ NAVBAR END -->
+
+  <!-- ✅ HERO SECTION -->
+  <header class="hero">
+    <div class="hero-left">
+      <p>Full-Stack Web Developer</p>
+      <h1>Hey, I am <span id="typed-text"></span><span class="cursor">|</span></h1>
+
+
+      
+    </div>
+    <div class="hero-right">
+      <img src="mii.png" alt="Milan's Photo">
+    </div>
+  </header>
+  
+
+ 
+
+  <!-- ✅ ABOUT SECTION -->
+  <section id="about" class="section">
+    <h1 class="oo">About Me</h1> <br> <br> 
+    <p class="yy">
+      Hi there! I'm <strong>Milan Goraniya</strong> I specialize in building modern, responsive, and user-friendly web applications that not only look good but also perform efficiently.
+   
+      With a strong foundation in <strong>HTML, CSS, JavaScript, PHP, UI/UX, React.JS and Python</strong>, along with a solid understanding of <strong>MySQL and Git</strong>, I love turning complex problems into simple, elegant solutions. My goal is always to create seamless digital experiences with clean, maintainable code.
+    
+       I’m always looking to learn, grow, and collaborate on exciting web development projects. Whether it's frontend design or backend logic, I enjoy every step of the development process. </p>
+  </section>
+  
+
+  <!-- ✅ SKILLS SECTION -->
+  <section id="skills" class="section dark-section">
+    <h2 class="hh">My Technical Skills</h2> <br> <br>
+    <div class="skill-cards">
+      <!-- Designing Card -->
+      <div class="skill-card">
+        <h3>🎨 Designing</h3>
+        <p>Crafting intuitive and visually appealing UI/UX using tools like Figma and Adobe XD.</p>
+        <div class="icons">
+          <img src="https://cdn.icon-icons.com/icons2/3053/PNG/512/figma_alt_macos_bigsur_icon_190181.png" alt="Figma">
+          <img src="https://static-00.iconduck.com/assets.00/adobe-xd-icon-1024x1024-njjmrpui.png" alt="Adobe XD">
+        </div>
+      </div>
+    
+      <!-- Development Card -->
+      <div class="skill-card">
+        <h3>💻 Development</h3>
+        <p>Building dynamic web interfaces with HTML, CSS, JavaScript, and modern libraries.</p>
+        <div class="icons">
+          <img src="https://img.icons8.com/?size=100&id=n8qskJFP4ZkH&format=png&color=000000" alt="HTML">
+          <img src="https://img.icons8.com/?size=100&id=d9mtzrk5gad4&format=png&color=000000" alt="CSS">
+          <img src="https://img.icons8.com/?size=100&id=42769&format=png&color=000000" alt="JavaScript">
+        </div>
+      </div>
+    
+      <!-- Backend Card -->
+      <div class="skill-card">
+        <h3>🧠 Backend</h3>
+        <p>Handling server-side logic, APIs, and authentication using PHP and Python.</p>
+        <div class="icons">
+          <img src="https://img.icons8.com/?size=100&id=3753&format=png&color=000000" alt="PHP">
+          <img src="https://img.icons8.com/?size=100&id=dJWZCuMdUFnV&format=png&color=000000" alt="Python">
+        </div>
+      </div>
+    
+      <!-- Database Card -->
+      <div class="skill-card">
+        <h3>🗄️ Database</h3>
+        <p>Designing secure and optimized databases with MySQL.</p>
+        <div class="icons">
+          <img src="https://static-00.iconduck.com/assets.00/database-mysql-icon-1954x2048-08uox8qu.png" alt="MySQL">
+        </div>
+      </div>
+    </div>
+    
+  </section>
+
+  <!-- ✅ PROJECTS SECTION -->
+  <section id="projects" class="section">
+    <h2 class="pp">My Projects</h2> <br> 
+    <div class="project-container">
+      
+      <!-- Project Card -->
+      <div class="project-card">
+        <img src="ss.png" alt="Project image">
+        <div class="project-overlay">
+          <h3>Social Media Platform</h3>
+          <p>I developed a full-stack platform where users can sign up, log in, upload photos, like and comment on posts, and manage profiles with bios and avatars — all backed by a MySQL database for secure and consistent data handling.
+
+          </p>
+          <a href="https://github.com/your-username/your-repo-name" target="_blank" class="github-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <img src="ff.png" alt="Project image">
+        <div class="project-overlay">
+          <h3>Motion Detection Camera</h3>
+          <p>Built a smart camera system that detects motion in real time using Python and OpenCV. When motion is detected, it captures the frame and triggers an alert, making it ideal for surveillance and security applications.
+
+            </p>
+            <a href="https://github.com/your-username/your-repo-name" target="_blank" class="github-link">
+              <i class="fab fa-github"></i>
+            </a>
+        </div>
+      </div>
+      <div class="project-cardd">
+        <img src="oo.png" alt="Project image">
+        <div class="project-overlay">
+          <h3>AI Chat Box</h3>
+          <p>Integrated an intelligent AI chat box using a public API to provide real-time, context-aware responses, enhancing user interaction within the platform.</p>
+          <a href="https://github.com/your-username/your-repo-name" target="_blank" class="github-link">
+            <i class="fab fa-github"></i>
+          </a>
+        </div>
+      </div>
+      </div>
+ 
+      <div class="button-wrapper">
+        <a href="#" target="_blank" class="youtube-button"> See more on GitHub</a>
+
+      </div>
+      
+    
+  </section>
+
+  
+  
+
+  <section id="contact" class="contact-section">
+    <div class="contact-left">
+      <h2>Contact Me</h2>
+      <p><img src="https://img.icons8.com/fluency/24/000000/new-post.png"/> milangoraniya@gmail.com</p>
+  
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+      </div>
+  
+      <a href="Presentation.pdf" class="resume-btn">Download My Resume</a>
+    </div>
+  
+    <div class="contact-right">
+      <form>
+        <input type="text" placeholder="Enter Your Name" required>
+        <input type="email" placeholder="Enter Your E-Mail" required>
+        <textarea placeholder="Message" rows="6" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+  
+
+  <footer>
+    <p>&copy; 2025 Milan Goraniya</p>
+  </footer>
+
+  <!-- ✅ YOUR CUSTOM JS -->
+  <script src="3.js"></script>
+</body>
+</html>
