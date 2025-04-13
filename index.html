@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Milan's Portfolio</title>
@@ -291,7 +291,7 @@
 .project-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 93px;
   justify-content: center;
   margin-top: 40px;
 }
@@ -433,7 +433,7 @@
 }
 
 .youtube-button:hover {
-  background-color: #000000;
+  background-color: #0b4ce4;
 }
 
 .contact-section {
@@ -494,6 +494,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 15px;
+  width: 40rem;
 }
 
 form input,
@@ -523,43 +524,32 @@ form button:hover {
 }
 
 
-@media (max-width: 1024px) {
-  nav ul {
-    gap: 5rem;
-  }
 
-  .hero {
-    flex-direction: column;
-    text-align: center;
-    padding: 100px 2rem 2rem;
-  }
-
-  .hero-left {
-    max-width: 100%;
-  }
-
-  .hero-right {
-    position: static;
-    width: 100%;
-    margin-top: 2rem;
-    text-align: center;
-  }
-
-  .hero-right img {
-    width: 80%;
-    margin: 0 auto;
-    margin-left: 0;
-  }
-}
 
 @media (max-width: 768px) {
   nav ul {
-    flex-direction: column;
+    flex-direction: row;
     gap: 1.5rem;
+    
     align-items: center;
     margin-top: 0;
   }
+  .ff{
+    font-size: small;
+  }
 
+  .ppp {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .ppp img {
+    width: 90%; /* Optional: makes images more mobile-friendly */
+  }
+ 
+  nav ul li a{
+    font-size: 1.3rem;
+  }
   nav {
     flex-direction: column;
   }
@@ -567,6 +557,7 @@ form button:hover {
   #typed-text,
   .cursor {
     font-size: 2rem;
+    color: #260dd7;
   }
 
   .yy {
@@ -580,11 +571,20 @@ form button:hover {
 
   .hero {
     padding: 80px 1rem;
+    min-height: 61vh;
   }
 
+  .hero-left{
+    margin-top: 22rem;
+    width: 900px;
+  }
   .hero-right img {
-    width: 100%;
+    width: 170%;
     margin: 0;
+    margin-top: 3rem;
+    height: 450px;
+    margin-left: -9rem;
+    top: 50px;
   }
 
   .skill-card {
@@ -611,6 +611,9 @@ form button:hover {
     flex-direction: column;
     padding: 2rem;
   }
+  form{
+    width: 15rem;
+}
 
   form input,
   form textarea {
@@ -618,26 +621,121 @@ form button:hover {
   }
 }
 
+
 @media (max-width: 480px) {
-  .youtube-button,
-  .your-button {
-    padding: 10px 16px;
-    font-size: 14px;
+  nav ul {
+    flex-direction: row;
+    gap: 1.5rem;
+    
+    align-items: center;
+    margin-top: 0;
   }
 
-  nav ul li a {
-    font-size: 1rem;
+  nav ul li a{
+    font-size: 1.3rem;
+  }
+  nav {
+    flex-direction: column;
   }
 
-  .resume-btn {
-    font-size: 14px;
-    padding: 10px 16px;
+  #typed-text,
+  .cursor {
+    font-size: 2rem;
+    color: #260dd7;
   }
 
-  .github-link {
-    font-size: 1.4rem;
+
+  .hh, .oo, .pp {
+    font-size: 2rem;
+  }
+
+  .hero {
+    padding: 80px 1rem;
+    min-height: 61vh;
+  }
+
+  .hero-left{
+    margin-top: 22rem;
+    width: 900px;
+  }
+  .hero-right img {
+    width: 170%;
+    margin: 0;
+    margin-top: 3rem;
+    height: 450px;
+    margin-left: -25rem;
+    top: 50px;
+  }
+
+  .skill-card {
+    width: 90%;
+  }
+
+  .project-card,
+  .project-cardd {
+    width: 90%;
+    height: auto;
+  }
+
+  .project-card img,
+  .project-cardd img {
+    height: auto;
+  }
+
+  .project-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-section {
+    flex-direction: column;
+    padding: 2rem;
+  }
+form{
+    width: 15rem;
+}
+  form input,
+  form textarea {
+    max-width: 100%;
   }
 }
+
+.ppp{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0 15px;
+  max-width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  
+}
+
+.ppp img {
+    width: 100%;
+    max-width: 550px;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px;
+   
+}
+
+
+.ff{
+  font-family: "Poppins", sans-serif;
+  font-size: large;
+  max-width: 1500px;
+  margin: 20px auto;
+  line-height: 1.8;
+  text-align: justify;
+  padding: 0 20px;
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+
 
 
   </style>
@@ -676,18 +774,18 @@ form button:hover {
   <!-- ✅ ABOUT SECTION -->
   <section id="about" class="section">
     <h1 class="oo">About Me</h1> <br> <br> 
-    <p class="yy">
-      Hi there! I'm <strong>Milan Goraniya</strong> I specialize in building modern, responsive, and user-friendly web applications that not only look good but also perform efficiently.
-   
-      With a strong foundation in <strong>HTML, CSS, JavaScript, PHP, UI/UX, React.JS and Python</strong>, along with a solid understanding of <strong>MySQL and Git</strong>, I love turning complex problems into simple, elegant solutions. My goal is always to create seamless digital experiences with clean, maintainable code.
     
-       I’m always looking to learn, grow, and collaborate on exciting web development projects. Whether it's frontend design or backend logic, I enjoy every step of the development process. </p>
-  </section>
+<div class="ppp"> 
+  <img  src="pre1.png" alt="" srcset=""> 
+  <img  src="pre2.png" alt="" srcset=""> </div>
+      <br> <br> <p class="ff"> 
+      I specialize in building modern, responsive, and user-friendly web applications that not only look good but also perform efficiently.With a strong foundation in <strong>HTML, CSS, JavaScript, PHP, UI/UX, React.JS and Python</strong>, along with a solid understanding of <strong>MySQL and Git</strong>, I love turning complex problems into simple, elegant solutions.  My goal is always to create seamless digital experiences with clean, maintainable code. I’m always looking to learn, grow, and collaborate on exciting web development projects. Whether it's frontend design or backend logic, I enjoy every step of the development process.</p>
+     </section>
   
 
   <!-- ✅ SKILLS SECTION -->
   <section id="skills" class="section dark-section">
-    <h2 class="hh">My Technical Skills</h2> <br> <br>
+    <h2 class="hh">My Technical Skills</h2> <br> 
     <div class="skill-cards">
       <!-- Designing Card -->
       <div class="skill-card">
@@ -745,7 +843,7 @@ form button:hover {
           <p>I developed a full-stack platform where users can sign up, log in, upload photos, like and comment on posts, and manage profiles with bios and avatars — all backed by a MySQL database for secure and consistent data handling.
 
           </p>
-          <a href="https://github.com/your-username/your-repo-name" target="_blank" class="github-link">
+          <a href="https://github.com/MilanGoraniya/SocialWeb.git" target="_blank" class="github-link">
             <i class="fab fa-github"></i>
           </a>
         </div>
@@ -758,7 +856,7 @@ form button:hover {
           <p>Built a smart camera system that detects motion in real time using Python and OpenCV. When motion is detected, it captures the frame and triggers an alert, making it ideal for surveillance and security applications.
 
             </p>
-            <a href="https://github.com/your-username/your-repo-name" target="_blank" class="github-link">
+            <a href="https://github.com/MilanGoraniya/motion-detection-web.git" target="_blank" class="github-link">
               <i class="fab fa-github"></i>
             </a>
         </div>
@@ -768,7 +866,7 @@ form button:hover {
         <div class="project-overlay">
           <h3>AI Chat Box</h3>
           <p>Integrated an intelligent AI chat box using a public API to provide real-time, context-aware responses, enhancing user interaction within the platform.</p>
-          <a href="https://github.com/your-username/your-repo-name" target="_blank" class="github-link">
+          <a href="https://github.com/MilanGoraniya" target="_blank" class="github-link">
             <i class="fab fa-github"></i>
           </a>
         </div>
@@ -776,7 +874,7 @@ form button:hover {
       </div>
  
       <div class="button-wrapper">
-        <a href="#" target="_blank" class="youtube-button"> See more on GitHub</a>
+        <a href="https://github.com/MilanGoraniya" target="_blank" class="youtube-button"> See more on GitHub</a>
 
       </div>
       
@@ -792,23 +890,26 @@ form button:hover {
       <p><img src="https://img.icons8.com/fluency/24/000000/new-post.png"/> milangoraniya@gmail.com</p>
   
       <div class="social-icons">
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
-        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="www.linkedin.com/in/milan-goraniya-71508a248"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/MilanGoraniya"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/millnn_?igsh=MXVuaDgyM3lwZXRhZA=="><i class="fab fa-instagram"></i></a>
+        
+        
       </div>
   
-      <a href="Presentation.pdf" class="resume-btn">Download My Resume</a>
+      
     </div>
-  
-    <div class="contact-right">
-      <form>
-        <input type="text" placeholder="Enter Your Name" required>
-        <input type="email" placeholder="Enter Your E-Mail" required>
-        <textarea placeholder="Message" rows="6" required></textarea>
-        <button type="submit">Submit</button>
+
+
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea placeholder="Message" rows="6" required></textarea>  
+        <button type="submit">Send</button>
+        <p id="status-message" style="color: green; margin-top: 10px;"></p>
       </form>
+      
+      
     </div>
   </section>
   
@@ -819,5 +920,28 @@ form button:hover {
 
   <!-- ✅ YOUR CUSTOM JS -->
   <script src="3.js"></script>
+  <script>
+    const form = document.getElementById("contact-form");
+    const statusMessage = document.getElementById("status-message");
+  
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+  
+      const formData = new FormData(form);
+      const res = await fetch("https://formsubmit.co/ajax/milangoraniya@gmail.com", {
+        method: "POST",
+        body: formData
+      });
+  
+      if (res.ok) {
+        statusMessage.textContent = "Message sent successfully!";
+        form.reset();
+      } else {
+        statusMessage.textContent = "Failed to send. Please try again.";
+        statusMessage.style.color = "red";
+      }
+    });
+  </script>
+  
 </body>
 </html>

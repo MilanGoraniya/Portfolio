@@ -1,5 +1,5 @@
 // Scroll reveal animation
-ScrollReveal().reveal('.section h1, .section p, .project, .hh, .pp, .project-card, .project-cardd, .icons, form', {
+ScrollReveal().reveal('.section h1, .section p, .project, .hh, .pp, .project-card, .project-cardd, .icons', {
   delay: 200,
   distance: '50px',
   duration: 1000,
