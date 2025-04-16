@@ -707,6 +707,9 @@ form{
   }
 }
 
+.lop{
+  font-size: 0.8rem;
+}
 .ppp{
   display: flex;
   justify-content: center;
@@ -861,8 +864,8 @@ form{
       <div class="project-card">
         <img src="ff.png" alt="Project image">
         <div class="project-overlay">
-          <h5>Motion Detection Camera</h5>
-          <p>Built a smart camera system that detects motion in real time using Python and OpenCV. When motion is detected, it captures the frame and triggers an alert.
+          <h5 class="lop">Motion Detection Camera</h5>
+          <p class="lop">Built a smart camera system that detects motion in real time using Python and OpenCV. When motion is detected, it captures the frame and triggers an alert.
 
             </p>
             <a href="https://github.com/MilanGoraniya/motion-detection-web.git" target="_blank" class="github-link">
@@ -913,7 +916,7 @@ form{
       <form id="contact-form">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="email" name="email" placeholder="Your Email" required>
-        <textarea placeholder="Message" rows="6" required></textarea>  
+        <textarea name="Message" placeholder="Message" rows="6" required></textarea>  
         <button type="submit">Send</button>
         <p id="status-message" style="color: green; margin-top: 10px;"></p>
       </form>
